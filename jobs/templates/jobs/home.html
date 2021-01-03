@@ -1,0 +1,67 @@
+
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Abelaash Giritharan</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  </head>
+
+  <body>
+
+
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Abelaash Giritharan</h1>
+          <p class="lead text-muted">My name is Abelaash. I enjoy making frontend and backend web applications.</p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">Connect me on LinkedIn</a>
+            <a href="#" class="btn btn-secondary my-2">Check my projects on GitHub</a>
+          </p>
+          <img src="{% static 'abelaash.jpg' %}" height=300></img>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            {%  for job in jobs.all  %}
+            <div class="col-md-4">
+              <a href=" {% url 'detail' job.id %}">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ job.image.url}}">
+                <div class="card-body">
+                  <p class="card-text">{{ job.summary }}</p>
+                </div>
+              </div>
+              </a>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'popper.min.js' %}"></script>
+    <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
